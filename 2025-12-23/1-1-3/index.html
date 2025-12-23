@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 프로필 데이터</title>
+</head>
+<body>
+    <script>
+        let username = "장미진";
+        let age = 38;
+        let isStudent = true;
+        let hobby = ["독서", "영상보기"];
+        let emptyVal = null;
+
+        console. log(typeof username);
+        console. log(typeof age);
+
+        let status = age >= 18 ? "성인" : "학생";
+        console.log("제 신분은" + status + "입니다.");
+
+        console.log(`안녕하세요. 제 이름은 ${username}이고, 나이는 ${age}세입니다. 제 신분은 ${status}이며, 취미는 ${hobby}입니다.`)
+
+        console.log("안녕하세요. 제 이름은 " + username + "이고, 나이는 " + age + "세입니다. 제 신분은 " + status + "이며, 취미는 " + hobby + "입니다.")
+    </script>
+</body>
+</html>
