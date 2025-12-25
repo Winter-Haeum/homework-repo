@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 계산기 함수 만들기</title>
+</head>
+<body>
+    <script>
+        function calculaate(a, b, operator = '+') {
+            switch (operator) {
+                case '+': return a + b;
+                case '-': return a - b;
+                case '*': return a * b;
+                case '/': 
+                    if (b === 0) {
+                        return '0으로 나눌 수 없습니다';
+                    }
+                    return a / b;
+                default: return '잘못된 연산자 입니다'
+            }
+        }
+
+    console.log(calculaate(10, 5, '-'));
+    console.log(calculaate(10, 0, '/'));
+    </script>
+</body>
+</html>
