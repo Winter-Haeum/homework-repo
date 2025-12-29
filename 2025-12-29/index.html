@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 배열 관리하기</title>
+</head>
+<body>
+    <script>
+        // 빈 배열 만들기 -------------------------------------------------
+        const cart = [];
+    
+        // 상품 추가하기 -------------------------------------------------
+        cart.push({ name: '초콜릿', price: 2000 });
+        cart.push({ name: '이어폰', price: 10000 });
+        cart.push({ name: '실내화', price: 5000 });
+        cart.push({ name: '커피', price: 4500 });
+        cart.push({ name: '공깃돌', price: 1000 });
+
+        console.log(cart);
+
+        // 목록 출력하기 -------------------------------------------------
+        const names = [];
+        names.push(cart[0].name + " - " + cart[0].price + "원");
+        names.push(cart[1].name + " - " + cart[1].price + "원");
+        names.push(cart[2].name + " - " + cart[2].price + "원");
+        names.push(cart[3].name + " - " + cart[3].price + "원");
+        names.push(cart[4].name + " - " + cart[4].price + "원");
+
+        const list = names.join("\n");
+
+        console.log(list);
+     
+        // 상품 삭제하기 -------------------------------------------------
+        const index = names.indexOf("커피 - 4500원");
+        console.log(index);
+
+        if (index !== -1) {
+            const removedItem = cart.splice(index, 1);
+            console.log(removedItem);
+        }
+        
+        // 가격순 정렬하기 -------------------------------------------------
+        const sortedCart = cart.sort((a, b) => a.price - b.price);
+
+        console.log(sortedCart);
+
+        // 최종 목록 출력하기 -------------------------------------------------
+        const finalNames = [];
+        finalNames.push(cart[0].name + " - " + cart[0].price + "원");
+        finalNames.push(cart[1].name + " - " + cart[1].price + "원");
+        finalNames.push(cart[2].name + " - " + cart[2].price + "원");
+        finalNames.push(cart[3].name + " - " + cart[3].price + "원");
+
+        const finalList = finalNames.join("\n");
+
+        console.log(finalList);
+    </script>
+</body>
+</html>
