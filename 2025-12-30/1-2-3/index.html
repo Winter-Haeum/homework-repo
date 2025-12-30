@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 정보 객체 관리하기</title>
+</head>
+<body>
+    <script>
+        const student = {
+            name: "오서준",
+            age: 6,
+            scores: {
+                math: 90,
+                english: 70
+            }
+        };
+
+        function getProperty(obj, key) {
+          return obj[key];
+        }
+
+        function getAverage(scores) {
+            let sum = 0;
+            let n = 0;
+
+            for (const key in scores) {
+                sum += scores[key];
+                n++;
+            }
+        
+            return sum / n;
+        }
+
+        const copiedStudent = structuredClone(student);
+
+        console.log(`이름: ${getProperty(student, "name")}`);
+        console.log(`평균 점수: ${getAverage(student.scores)}`);
+
+        copiedStudent.name = "오은서";
+
+        console.log(`원본 이름: ${student.name}`);
+        console.log(`복사본 이름: ${copiedStudent.name}`);
+    </script>    
+</body>
+</html>
