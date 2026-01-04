@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>간단한 프로필 카드 조작하기</title>
+    <title>간단한 프로필 카드 조작하기</title>  
+    <!-- =========================== -->
+    <!-- [문제]
+    버튼 클릭 시 다음을 수행하시오. 
+    1) .profile-name 글자를 "홍길동"으로 변경
+    2) .profile-card에 "dark-mode" 클래스 토글
+    3) data-user-id 값을 콘솔에 출력
+    4) <span>신규</span>를 만들어 카드 안에 추가 -->
+    <!-- =========================== -->    
+    <style>
+        .profile-card {
+          padding: 16px;
+          border: 1px solid #000;
+        }
+        .dark-mode {
+          background: black;
+          color: white;
+        }
+    </style>
 </head>
+
 <body>
-    
-</body>
+    <div class="profile-card" data-user-id="777">
+    <h2 class="profile-name">미진</h2>
+    <button id="btn">변경</button>
+</div>  
+<script>
+    const button = document.querySelector("#btn");          // id가 btn인 버튼 요소 선택
+    button.addEventListener("click", function () {          // 버튼을 클릭했을 때 실행
+      const myName = document.querySelector(".profile-name"); // 이름이 들어있는 요소 선택
+      myName.textContent = "홍길동";                          // 요소 안 글자를 "홍길동"으로 변경
+      const card = document.querySelector(".profile-card");  // 카드 전체 요소 선택
+      card.classList.toggle("dark-mode");                    // dark-mode 클래스가 있으면 제거, 없으면 추가
+      console.log(card.dataset.userId);                      // card에 저장된 data-user-id 값 출력
+      const span = document.createElement("span");           // span 태그를 새로 생성
+      span.textContent = "신규";                              // span 태그 안에 "신규" 글자 추가
+      card.appendChild(span);                                // span을 card 안 맨 뒤에 붙이기
+    });
+  </script></body>
 </html>
