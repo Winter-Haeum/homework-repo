@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 위임 - 버튼 그룹 효율적으로 관리하기</title>
+</head>
+<body>
+    <div class="button-group" id="button-group">
+      <button data-action="add">추가</button>
+      <button data-action="edit">수정</button>
+      <button data-action="delete">삭제</button>
+    </div>
+    
+<script>
+    const group = document.querySelector("#button-group"); // 버튼들을 감싸는 부모 요소를 가져오기  
+    
+    group.addEventListener("click", function(e) { // 부모에 클릭 이벤트를 등록한다 (이벤트 위임)
+        const button = e.target.closest("button");  // 실제 클릭된 곳에서 가장 가까운 button을 찾기
+        if (!button) return;                         // button이 아니면 종료
+        
+        const action = button.dataset.action;        // 클릭된 버튼의 data-action 값을 가져오기
+        if (action === "add") {                      
+            console.log("Add Clicked");               
+        } else if (action === "edit") {              
+            console.log("Edit Clicked");               
+        } else if (action === "delete") {            
+            console.log("Delete Clicked");             
+        }
+    });
+</script>
+</body>
+</html>
+
