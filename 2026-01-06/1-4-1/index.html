@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정보 안전하게 출력하기</title>
+</head>
+<body>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    🧪 실습 과제: 사용자 정보 안전하게 출력하기
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    [목표]
+        - ES6 문법을 사용해 불완전한 사용자 데이터를
+          에러 없이 안전하게 처리하고 출력한다.
+
+    [사용 문법]
+        - for...of (배열 순회)
+        - ?.  (옵셔널 체이닝: 값이 없으면 멈춤)
+        - ??  (널 병합 연산자: null/undefined면 기본값 사용)
+        - 템플릿 리터럴 (`${}`)
+
+    [데이터 구조]
+        const users = [
+          {
+            name: "Kim",
+            profile: { bio: "Hi" }
+          },
+          {
+            name: "Lee",
+            profile: null
+          }
+        ];
+
+    [요구사항]
+        1. users 배열을 for...of로 순회한다.
+        2. profile이 없을 경우(null),
+           bio 값을 "소개 없음"으로 처리한다.
+           → ?. 와 ?? 반드시 사용
+        3. 템플릿 리터럴을 사용해
+           <div>이름: 소개글</div> 형태의 문자열을 생성한다.
+        4. 에러 없이 실행되어야 한다.
+
+    [기대 결과 - 콘솔 출력]
+        <div>Kim: Hi</div>
+        <div>Lee: 소개 없음</div>
+
+    [체크 포인트]
+        - null 접근 에러가 발생하지 않는가?
+        - 기본값 처리가 정확한가?
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+
+    <script>
+        const users = [
+            {
+                name: "Kim",
+                profile: {bio: "Hi"}
+            },
+            {
+                name: "Lee",
+                profile: null
+            }
+        ];
+
+        // 과제 정답
+        for(const list of users) {
+            const name = list.name;
+            const profile = list.profile;
+
+            const bio = profile?.bio ?? "소개 없음";
+
+            console.log(`<div>${name}: ${bio}</div>`)
+        }
+
+        // 추가 공부 : 화면에 출력하기 1
+        for(const list of users) {
+            const name = list.name;
+            const profile = list.profile;
+
+            const bio = profile?.bio ?? "소개 없음";
+
+            const div = document.createElement("div");
+            div.textContent = `${name}: ${bio}`;
+
+            document.body.appendChild(div);
+        }
+
+        // 추가 공부 : 화면에 출력하기 2 - 배열로 모아 출력하기
+        const divList = [];
+
+        for(const list of users) {
+            const name = list.name;
+            const profile = list.profile;
+
+            const bio= profile?.bio ?? "소개 없음";
+
+            const div = document.createElement("div");
+            div.textContent = `${name}: ${bio}`;
+
+            divList.push(div);
+        }
+
+        for(const div of divList) {
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
+</html>
+
+
