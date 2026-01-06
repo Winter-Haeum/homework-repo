@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레거시 코드 청산하기</title>
+</head>
+<body>
+<script>
+    /* =========================================================
+        [과제] 레거시 코드 청산하기 
+
+        [목표]
+        단축키를 입력하세요 ES6+ 앱(화살표 함수, 펼침, 구조 분해)로
+        단 2줄로 리팩터링합니다.   
+
+        [요구사항(단계별)]
+        1) 'function' 키워드를 삭제하고 화살표 기호(=>)로 등록
+        2) 교환한 "수동 충전(||)"을 없애고, 느낌(...) 단 한 줄로 합치기
+        3) 결과는 '테마'를 구조분해(destructuring, 디스트럭처링)로 꺼낸 뒤,
+           백틱(backtick, 백틱)으로 출력하기   
+
+        [예상 결과]
+        콘솔 출력: 테마: dark  
+
+        [리팩터링 포인트]
+        - '||' 독립된 독립형 별도로 겨열하지 않기
+        - return(리턴) 기다리겠습니까? (선택)
+    ========================================================= */ 
+
+    /* =========================================================
+     [레거시 코드]
+    ========================================================= */
+    // var defaultSettings = {
+    //     theme: "blue",
+    //     showSidebar: true
+    // };  
+
+    // // 1. 설정 병합 함수
+    // var updateSettings = function (userSettings) {
+    //     // 수동 병합 (복잡함)
+    //     var final = {};   
+    
+    //     // 수동 충전 (||)
+    //     final.theme = userSettings.theme || defaultSettings.theme;
+    //     final.showSidebar = userSettings.showSidebar || defaultSettings.showSidebar;  
+        
+    //     // 2. 결과 출력
+    //     console.log("테마: " + final.theme);  
+    //     return final;
+    // };  
+    
+    
+    // 과제 시작
+    const defaultSettings = {
+        theme: "blue",
+        showSidebar: true
+    };
+
+    const updateSettings = (userSettings) => {
+        return {
+            ...defaultSettings,
+            ...userSettings
+        };   
+    }
+
+    const result = updateSettings({theme: "dark"});
+    const {theme} = result; 
+    
+    console.log(`테마: ${theme}`);
+    </script>
+</body>
+</html>
