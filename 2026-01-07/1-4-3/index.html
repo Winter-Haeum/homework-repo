@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저 카운터 모듈 만들기</title>
+</head>
+<body>
+  <script>
+    /* --------------------------------------------------------------------------
+    [실습 과제]
+    클로저를 활용해 private 상태를 가진 카운터 모듈을 구현한다.
+
+    [요구사항]
+    1. createCounter() 함수는 increment, decrement, getValue 메서드를 반환한다.
+    2. 내부 count 변수는 외부에서 직접 접근할 수 없다(private).
+    3. 각 counter 인스턴스는 서로 독립적인 상태를 가진다.
+    4. (선택) reset() 메서드를 추가한다.
+
+    [예상 결과]
+    counter1.increment() → 1
+    counter2.increment() → 1
+    (서로 독립적으로 동작)
+    --------------------------------------------------------------------------- */
+
+    // [정답 코드]
+    function createCounter() {
+      let count = 0;              // 카운터 상태를 저장하는 private 변수
+
+      return {
+        increment() {             // count를 1 증가시키는 메서드
+          count++;                // 내부 상태 변경
+          return count;           // 변경된 값을 반환
+        },
+
+        decrement() {             // count를 1 감소시키는 메서드
+          count--;                // 내부 상태 변경
+          return count;           // 변경된 값을 반환
+        },
+
+        getValue() {              // 현재 count 값을 조회하는 메서드
+          return count;           // 내부 상태 반환
+        },
+
+        reset() {                 // count를 0으로 초기화하는 메서드 (선택)
+          count = 0;              // 상태 초기화
+          return count;           // 초기화된 값 반환
+        }
+      };
+    }
+
+    // 카운터 인스턴스 생성
+    const counter1 = createCounter(); // 첫 번째 카운터 (독립 상태)
+    const counter2 = createCounter(); // 두 번째 카운터 (독립 상태)
+
+    // 실행 결과 확인
+    console.log(counter1.increment()); // 1
+    console.log(counter1.increment()); // 2
+    console.log(counter2.increment()); // 1 (counter1과 독립)
+  </script>
+</body>
+</html>
+
