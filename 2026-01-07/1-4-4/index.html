@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this 바인딩 실험하기</title>
+</head>
+<body>
+    <script>
+        const hero = {
+         name: "Batman",
+         call() {
+           console.log(this.name);
+         }
+        };
+        
+
+        // 1. this 손실 (undefined)
+        const stolenCall = hero.call;
+        stolenCall(); // undefined
+
+        // undefined가 나오는 이유
+        // 1. hero.call이 새로운 변수 stolenCall에 담기는 순간 hero와의 연결이 끊긴다.
+        // 2. stolenCall();은 객체.함수() 형태가 아니라 함수()로 호출이 되기 때문에 this는 undefined가 된다.
+        
+
+
+        // 2. bind로 해결
+        const fixedCall = hero.call.bind(hero)
+        fixedCall(); // Batman
+
+
+        // 3. setTimeout 안에서 this 손실
+        setTimeout(
+            function () {
+              console.log(this.name);
+            },
+            1000
+            );
+
+        // setTimeout 안에서도 this 사용 가능
+        setTimeout(
+            function() {
+                console.log(this.name);
+                }.bind(hero),
+                1000
+            );
+
+    </script>
+</body>
+</html>
