@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>피자배달 시뮬레이션</title>
+</head>
+<body>
+<script>
+    orderPizza('Pepperoni', (err, orderId) => {
+      if (err) return handleError(err);
+      
+      makeDough(orderId, (err, dough) => {
+        if (err) return handleError(err);
+        
+        bakePizza(dough, (err, pizza) => {
+          if (err) return handleError(err);
+          
+          console.log(`${pizza.name} 배달 완료! 🍕`);
+        });
+      });
+    });
+
+    // 정답
+    async function deliverPizza() {                 // 비동기 흐름을 담는 함수 선언
+      try {                                         // 에러가 날 수 있는 전체 작업 시작
+        const orderId = await orderPizza('Pepperoni'); // 피자 주문 → 주문번호 받기
+        const dough = await makeDough(orderId);        // 주문번호로 반죽 만들기
+        const pizza = await bakePizza(dough);          // 반죽을 구워 피자 완성
+        console.log(`${pizza.name} 배달 완료! 🍕`);    // 최종 결과 출력
+      } catch (error) {                              // 중간에 에러가 나면
+        handleError(error);                          // 에러 처리
+      }
+    }
+</script>
+</body>
+</html>
