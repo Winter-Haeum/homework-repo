@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+  
+    body {
+      background: #f4f6f8;
+      padding: 40px;
+    }
+  
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 320px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .input-area {
+      display: flex;
+      justify-content: center;   
+      align-items: center; 
+      gap: 6px;     
+      margin-bottom: 15px;
+    }
+
+    #todo-input {
+      width: 65%;
+      padding: 6px;
+    }
+  
+    #add-btn {
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+  
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 4px;
+      border-bottom: 1px solid #eee;
+    }
+  
+    li button {
+      background: #ff5f5f;
+      border: none;
+      color: white;
+      padding: 3px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    li button:hover {
+      background: #ff3b3b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="input-area">
+      <input id="todo-input" type="text" placeholder="할 일 입력" />
+      <button id="add-btn">추가</button>
+    </div>
+
+    <ul id="todo-list"></ul>
+  </div>
+
+<script>
+  // DOM 요소 선택하기
+  const input = document.getElementById('todo-input');
+  const button = document.getElementById('add-btn');
+  const ul = document.getElementById('todo-list');
+
+  // 할 일 데이터 빈배열 만들기
+  let todos = [];
+
+  // 로컬스토리지에 저장하는 함수
+  function saveTodos() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+
+  // 로컬스토리지에서 불러오는 함수
+  function loadTodos() {
+    const saved = localStorage.getItem('todos');
+    return saved ? JSON.parse(saved) : [];
+  }
+
+  // 화면에 목록을 그리는 함수 - 렌더링
+  function render() {
+    ul.innerHTML = '';
+
+    todos.forEach(function (todo, index) {
+      const li = document.createElement('li');
+      li.textContent = todo;
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = '삭제';
+
+      // 각 할 일 삭제 버튼 클릭 시 처리해라
+      deleteBtn.addEventListener('click', function () {
+        todos.splice(index, 1);
+        saveTodos();
+        render();
+      });
+
+      li.appendChild(deleteBtn);
+      ul.appendChild(li);
+    });
+  }
+
+  // 페이지 시작 시 저장된 목록 불러오기
+  todos = loadTodos();
+  render();
+
+  // 추가버튼 클릭 - 배열 추가 - 저장 - 렌더링
+  button.addEventListener('click', function () {
+    const text = input.value.trim();
+    if (!text) return;
+
+    todos.push(text);
+    saveTodos();
+    render();
+
+    input.value = '';
+  });
+
+  // Enter 키로도 추가하기
+  input.addEventListener('keydown', function(e) {
+    if(e.key === 'Enter') {
+      button.click();
+    }
+  });
+</script>
+</body>
+</html>
