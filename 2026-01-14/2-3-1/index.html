@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 랜덤 주사위 게임</title>
+</head>
+<body>
+    <script>
+        let n = 12;     
+
+        // 정수 n의 모든 약수를 배열로 변환
+        function getDivisors(n) {
+            let divisors = [];
+            for(let i = 1; i <= n; i++){
+                if(n % i === 0) {
+                    divisors.push(i);
+                }
+            };
+            return divisors;
+        }
+
+        // 약수의 개수를 반환
+        function countDivisors(n) {
+            let count = 0;
+            for(let i = 1; i <= n; i++) {
+                if(n % i === 0) {
+                    count++;
+                }
+            };
+            return count;
+        }
+
+        // 약수의 합을 반환
+        function sumDivisors(n) {
+            let sum = 0;
+            for(let i = 1; i <= n; i++) {
+                if(n % i === 0) {
+                    sum += i;
+                }
+            };
+            return sum;
+        }
+
+        // 콘솔로 확인하기
+        console.log(
+          `getDivisors(12) = [${getDivisors(12)}], ` +
+          `countDivisors(12) = ${countDivisors(12)}, ` +
+          `sumDivisors(12) = ${sumDivisors(12)}`
+        );
+
+    </script>
+</body>
+</html>
