@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 랜덤 주사위 게임</title>
+</head>
+<body>
+    <script>
+        // 주사위 만들기
+        function dice() {
+            const randomNum = Math.random();
+            const result =Math.floor(randomNum * 6);
+            return result;
+        }
+
+        // 주사위 두 수의 차이를 양수로 만들기
+        function getScore(a, b) {
+            return Math.abs(a - b);
+        }
+
+        const a = dice();
+        const b = dice();
+
+        const socre = getScore(a, b);
+
+        console.log(socre);
+
+    </script>
+</body>
+</html>
