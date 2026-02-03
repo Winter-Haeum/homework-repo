@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    justify-content: center;  
+    min-height: 100vh; 
+    width: 100vw;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0 50px;
+}
+
+.card {
+  position: relative;
+  transition: transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+  border-color: rgba(221, 221, 221, 1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(190, 120, 255, 0.9);
+  box-shadow: 0 18px 45px rgba(160, 70, 255, 0.25);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.imgBox {
+  position: relative;
+  width: 100%;
+}
+
+.img {
+  width: 100%;
+  display: block;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* 👇 이미지 위에 마우스 올리면 교체 */
+.imgBox:hover .wave {
+  opacity: 1;
+}
