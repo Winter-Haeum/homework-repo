@@ -17,7 +17,7 @@ Light / Dark 테마 전환과 상태 메시지 검증 로직을 포함한 인터
 
 ## 🎬 Demo
 
-<video src="./src/assets/profile-demo.webm" width="720" autoplay loop muted playsinline></video>
+▶️ [Watch Demo Video](./src/assets/profile-demo.webm)
 
 ---
 
@@ -29,9 +29,19 @@ Light / Dark 테마 전환과 상태 메시지 검증 로직을 포함한 인터
 
 ---
 
+## 🧠 What I Focused On
+
+- 상태 관리 흐름 분리 (Display / Edit 컴포넌트 분리)
+- 테마 전환 시 UI 일관성 유지
+- localStorage 동기화 로직 설계
+- 사용자 경험을 고려한 인터랙션 디테일
+- 재사용 가능한 컴포넌트 구조 설계
+
+---
+
 ## 📂 Folder Structure
 
-```
+```txt
 src
 ├─ components
 │  ├─ ProfileDisplay.jsx
@@ -40,6 +50,7 @@ src
 ├─ assets
 │  └─ profile-demo.webm
 ├─ App.jsx
+├─ main.jsx
 └─ index.css
 ```
 
@@ -53,10 +64,3 @@ npm run dev
 ```
 
 ---
-
-## 💡 What I Focused On
-- 상태 관리 흐름 분리
-- 테마에 따른 UI 일관성 유지
-- 사용자 경험을 고려한 애니메이션 디테일
-- 재사용 가능한 컴포넌트 구조 설계
-
