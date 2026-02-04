@@ -1,0 +1,62 @@
+## 📌 Project 02 - Profile Editor
+
+React 기반의 프로필 편집 UI 프로젝트입니다.  
+Light / Dark 테마 전환과 상태 메시지 검증 로직을 포함한 인터랙티브 컴포넌트를 구현했습니다.
+
+---
+
+## ✨ Features
+- 🌗 Light / Dark mode toggle (localStorage 저장)
+- ✏️ Profile name editing
+- 📝 Status message validation (max 20 chars)
+- 💾 Persistent state (새로고침 유지)
+- 🪟 Glassmorphism UI
+- 🎨 Smooth hover & transition effects
+
+---
+
+## 🎬 Demo
+
+<video src="./src/assets/profile-demo.webm" width="720" autoplay loop muted playsinline></video>
+
+---
+
+## 🛠 Tech Stack
+- React
+- useState / useEffect
+- LocalStorage
+- CSS (Glassmorphism, Theme transition, Hover animation)
+
+---
+
+## 📂 Folder Structure
+
+```
+src
+├─ components
+│  ├─ ProfileDisplay.jsx
+│  ├─ ProfileEditForm.jsx
+│  └─ ThemeToggle.jsx
+├─ assets
+│  └─ profile-demo.webm
+├─ App.jsx
+└─ index.css
+```
+
+---
+
+## 🚀 Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 💡 What I Focused On
+- 상태 관리 흐름 분리
+- 테마에 따른 UI 일관성 유지
+- 사용자 경험을 고려한 애니메이션 디테일
+- 재사용 가능한 컴포넌트 구조 설계
+

@@ -1,0 +1,311 @@
+/* =========================
+   Global
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body.light,
+body.dark {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.light {
+  background-image: url("../public/light-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.dark {
+  background-image: url("../public/dark-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.light::before,
+body.dark::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.light::before {
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.18)
+  );
+}
+
+body.dark::before {
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(0, 0, 0, 0.10),
+    rgba(0, 0, 0, 0.45)
+  );
+}
+
+
+/* =========================
+   Profile Card
+========================= */
+.profile {
+  position: relative;
+  width: min(520px, 92vw);
+  margin: 0;
+  padding: 30px;
+  border-radius: 20px;
+
+  border: none;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.45),
+      rgba(255,255,255,0.30)
+  );
+  backdrop-filter: blur(18px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.profile > * {
+  position: relative;
+  z-index: 1;
+}
+
+.profile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.20);
+  filter: brightness(1.03);
+}
+
+.profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+
+  box-shadow:
+    0 0 0 0 rgba(120, 210, 255, 0),
+    0 0 0 0 rgba(120, 210, 255, 0),
+    0 0 0 0 rgba(120, 210, 255, 0);
+
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.profile:hover::before {
+  opacity: 1;
+  box-shadow:
+    0 0 0 1px rgba(255, 220, 170, 0.5),
+    0 0 8px rgba(255, 220, 170, 0.35),
+    0 0 16px rgba(120, 210, 255, 0.3);  
+}
+
+.dark .profile {
+  border: none;
+  color: #EAF2FF; 
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(80, 130, 255, 0.08);
+}
+
+.dark .profile::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(20,30,55,0.80),
+    rgba(15,25,45,0.72)
+  );
+  backdrop-filter: blur(18px);
+}
+
+.dark .profile_label {
+  color: rgba(234, 242, 255, 0.65);
+}
+
+.dark .profile_value {
+  color: #F2F6FF;
+}
+
+.dark .profile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+}
+
+.dark .profile:hover::before {
+  opacity: 1;
+  box-shadow:
+    0 0 0 1px rgba(140, 190, 255, 0.55),
+    0 0 10px rgba(140, 190, 255, 0.25),
+    0 0 16px rgba(140, 190, 255, 0.14);
+}
+
+
+/* =========================
+   Theme Toggle
+========================= */
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+
+  transition: box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.light .theme-toggle {
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.dark .theme-toggle {
+  background: rgba(0, 0, 0, 0.25);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+@keyframes spinToggle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.theme-toggle:hover {
+  animation: spinToggle 0.9s linear infinite;
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+
+/* =========================
+   Profile Layout / Typography
+========================= */
+.profile_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_group {
+  margin-bottom: 27px;
+}
+
+.profile_label {
+  margin: 0 0 9px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.profile_value {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.profile_group:nth-of-type(2) .profile_value {
+  font-weight: 800;
+}
+
+
+/* =========================
+   Inputs
+========================= */
+.profile_input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  outline: none;
+}
+
+.profile_input:focus {
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+.dark .profile_input {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #EAF2FF;
+  backdrop-filter: blur(6px);
+}
+
+.dark .profile_input:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================
+   Button (Edit/Save)
+========================= */
+.profile_button {
+  margin-top: 14px;
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  background: #dfe2f5;
+  color: #1a1a2e;
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.profile_button:hover {
+  background: #d8ddf9;
+  box-shadow: 0 14px 22px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.dark .profile_button {
+  background: linear-gradient(135deg, #33407A, #3E4FA3);
+  color: #FFFFFF;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+.dark .profile_button:hover {
+  background: linear-gradient(135deg, #3E4FA3, #4F63D4);
+}
+
+
+/* =========================
+   Warning
+========================= */
+.profile_warning {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #d40000;
+}
