@@ -14,10 +14,11 @@ Light / Dark 테마 전환과 상태 메시지 검증 로직을 포함한 인터
 - 🎨 Smooth hover & transition effects
 
 ---
- 
+
 ## 🎬 Live Demo
 
-👉 https://winter-haeum.github.io/homework-repo/2026-02-04/1-2-4/
+🌐 Live Demo  
+👉 https://winter-haeum.github.io/homework-repo/
 
 ---
 
