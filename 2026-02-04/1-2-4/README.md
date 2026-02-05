@@ -17,7 +17,8 @@ Light / Dark 테마 전환과 상태 메시지 검증 로직을 포함한 인터
 
 ## 🎬 Demo
 
-▶️ [Watch Demo Video](./src/assets/profile-demo.webm)
+🌐 Live Demo  
+https://your-id.github.io/your-repo-name/
 
 ---
 
