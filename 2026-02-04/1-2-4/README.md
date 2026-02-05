@@ -18,7 +18,7 @@ Light / Dark 테마 전환과 상태 메시지 검증 로직을 포함한 인터
 ## 🎬 Demo
 
 🌐 Live Demo  
-https://your-id.github.io/your-repo-name/
+https://winter-haeum.github.io/homework-repo/
 
 ---
 
