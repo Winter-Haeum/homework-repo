@@ -19,7 +19,7 @@ props를 통한 데이터 전달 흐름을 구현했습니다.
 
 ## 🎬 Live Demo
 
-🌐 https://winter-haeum.github.io/homework-repo/
+🌐 https://winter-haeum.github.io/homework-repo/1-2-3/
 
 ---
 

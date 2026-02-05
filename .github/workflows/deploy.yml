@@ -1,4 +1,4 @@
-name: Deploy Vite (subfolder) to GitHub Pages
+name: Deploy Vite (multiple subfolders) to GitHub Pages
 
 on:
   push:
@@ -16,6 +16,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,18 +26,54 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install
+      # -------------------------
+      # 1-2-2
+      # -------------------------
+      - name: Install (1-2-2)
+        working-directory: 2026-02-03/1-2-2
+        run: npm ci
+
+      - name: Build (1-2-2)
+        working-directory: 2026-02-03/1-2-2
+        run: npm run build
+
+      # -------------------------
+      # 1-2-3
+      # -------------------------
+      - name: Install (1-2-3)
+        working-directory: 2026-02-04/1-2-3
+        run: npm ci
+
+      - name: Build (1-2-3)
+        working-directory: 2026-02-04/1-2-3
+        run: npm run build
+
+      # -------------------------
+      # 1-2-4
+      # -------------------------
+      - name: Install (1-2-4)
         working-directory: 2026-02-04/1-2-4
         run: npm ci
 
-      - name: Build
+      - name: Build (1-2-4)
         working-directory: 2026-02-04/1-2-4
         run: npm run build
+
+      # -------------------------
+      # Collect all builds
+      # -------------------------
+      - name: Prepare artifact folder
+        run: |
+          rm -rf dist
+          mkdir -p dist/1-2-2 dist/1-2-3 dist/1-2-4
+          cp -R 2026-02-03/1-2-2/dist/. dist/1-2-2/
+          cp -R 2026-02-04/1-2-3/dist/. dist/1-2-3/
+          cp -R 2026-02-04/1-2-4/dist/. dist/1-2-4/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 2026-02-04/1-2-4/dist
+          path: dist
 
   deploy:
     needs: build

@@ -54,7 +54,7 @@ src
 
 ## 🎬 Live Demo
 
-🌐 https://winter-haeum.github.io/homework-repo/
+🌐 https://winter-haeum.github.io/homework-repo/1-2-2/
 
 ---
 
