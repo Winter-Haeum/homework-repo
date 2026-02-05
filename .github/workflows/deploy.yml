@@ -17,17 +17,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install & Build
+      - name: Install
         working-directory: 2026-02-04/1-2-4
-        run: |
-          npm ci
-          npm run build
+        run: npm ci
+
+      - name: Build
+        working-directory: 2026-02-04/1-2-4
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -38,4 +42,5 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
