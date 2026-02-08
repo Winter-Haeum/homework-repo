@@ -12,6 +12,7 @@ props를 통한 데이터 전달과
 - 👤 ProfileCard 컴포넌트 분리
 - 🔁 카드 클릭 시 앞/뒤 전환 (useState)
 - ❤️ 좋아요 버튼 상태 관리
+- 💾 좋아요 수 새로고침 후에도 유지 (localStorage)
 - 🚫 이벤트 전파 제어 (stopPropagation)
 - 🎨 테마별 스타일 분기 (themeLight / themeDark)
 - ✨ Hover Glow 효과

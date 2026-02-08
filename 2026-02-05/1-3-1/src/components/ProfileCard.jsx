@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function ProfileCard({ theme, imageSrc, englishName, koreanName, desc }) {
-
     const [isFront, setIsFront] = useState(true);
-    const [likes, setLikes] = useState(0);
+
+    const safeName = encodeURIComponent(englishName);
+    const storageKey = `likes:${koreanName}`;
+
+    const [likes, setLikes] = useState(() => {
+        const saved = localStorage.getItem(storageKey);
+        return saved ? Number(saved) : 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem(storageKey, String(likes));
+    }, [likes, storageKey]);
 
     function handleCardClick() {
         setIsFront(!isFront);
@@ -26,7 +36,7 @@ function ProfileCard({ theme, imageSrc, englishName, koreanName, desc }) {
                         <span className="heartIcon">❤️</span>
                         <span className="likeCount">{likes}</span>
                         <span className="likeText">좋아요</span>
-                    </button>                
+                    </button>
                 </div>
             )}
 
@@ -37,7 +47,7 @@ function ProfileCard({ theme, imageSrc, englishName, koreanName, desc }) {
                 </div>
             )}
         </div>
-   );
+    );
 }
 
 export default ProfileCard;
