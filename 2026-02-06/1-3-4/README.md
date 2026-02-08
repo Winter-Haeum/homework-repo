@@ -1,16 +1,72 @@
-# React + Vite
+# 📌 Todo List UI (1-3-4)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 기반의 Todo List 프로젝트입니다.  
+컴포넌트 분리를 통해  
+props를 통한 데이터 전달과  
+state 기반 추가 / 삭제 기능을 구현했습니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 📝 TodoInput 컴포넌트 분리
+- ➕ 버튼 클릭 및 Enter 입력으로 할 일 추가 (useState)
+- ❌ 개별 항목 삭제 기능 (filter)
+- 🧠 부모 → 자식 props 데이터 전달 구조
+- ♻️ 불변성 유지 (spread 연산자)
+- ⌨️ Enter 키 이벤트 처리 (onKeyDown)
+- 🎨 미니멀 카드 UI 스타일 적용
+- 📱 기본 반응형 레이아웃
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🎬 Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🌐 https://winter-haeum.github.io/homework-repo/1-3-4/
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- useState
+- Props
+- Conditional Rendering
+- Array.map
+- Array.filter
+- Spread Operator
+- CSS
+- Flexbox
+
+---
+
+## 🧠 What I Focused On
+
+- 상태 기반 데이터 관리 구조 이해
+- 부모(App)에서 상태 관리 후 자식 컴포넌트로 props 전달
+- 이벤트 흐름 이해 (onChange, onClick, onKeyDown)
+- 배열 불변성 유지 방식 학습
+- 조건부 로직으로 공백 입력 방지 처리
+- UI와 로직 분리 구조 설계
+
+---
+
+## 📂 Folder Structure
+
+```txt
+src
+├─ components
+│  └─ TodoInput.jsx
+├─ App.jsx
+└─ index.css
+```
+
+---
+
+## 🚀 Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
