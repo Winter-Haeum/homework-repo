@@ -31,7 +31,7 @@ jobs:
       # -------------------------
       - name: Install (1-2-2)
         working-directory: 2026-02-03/1-2-2
-        run: npm ci
+        run: npm install
 
       - name: Build (1-2-2)
         working-directory: 2026-02-03/1-2-2
@@ -42,7 +42,7 @@ jobs:
       # -------------------------
       - name: Install (1-2-3)
         working-directory: 2026-02-04/1-2-3
-        run: npm ci
+        run: npm install
 
       - name: Build (1-2-3)
         working-directory: 2026-02-04/1-2-3
@@ -53,22 +53,67 @@ jobs:
       # -------------------------
       - name: Install (1-2-4)
         working-directory: 2026-02-04/1-2-4
-        run: npm ci
+        run: npm install
 
       - name: Build (1-2-4)
         working-directory: 2026-02-04/1-2-4
         run: npm run build
 
       # -------------------------
+      # 1-3-1
+      # -------------------------
+      - name: Install (1-3-1)
+        working-directory: 2026-02-05/1-3-1
+        run: npm install
+
+      - name: Build (1-3-1)
+        working-directory: 2026-02-05/1-3-1
+        run: npm run build
+
+      # -------------------------
+      # Debug - verify build outputs exist
+      # -------------------------
+      - name: Debug - verify build outputs exist
+        run: |
+          set -e
+          test -f 2026-02-03/1-2-2/dist/index.html
+          test -f 2026-02-04/1-2-3/dist/index.html
+          test -f 2026-02-04/1-2-4/dist/index.html
+          test -f 2026-02-04/1-3-1/dist/index.html
+          echo "✅ all dist/index.html exist"
+          echo "== 1-2-2 dist =="
+          ls -al 2026-02-03/1-2-2/dist
+          echo "== 1-2-3 dist =="
+          ls -al 2026-02-04/1-2-3/dist
+          echo "== 1-2-4 dist =="
+          ls -al 2026-02-04/1-2-4/dist
+          echo "== 1-3-1 dist =="
+          ls -al 2026-02-05/1-3-1/dist
+
+      # -------------------------
       # Collect all builds
       # -------------------------
       - name: Prepare artifact folder
         run: |
+          set -e
           rm -rf dist
-          mkdir -p dist/1-2-2 dist/1-2-3 dist/1-2-4
+          mkdir -p dist/1-2-2 dist/1-2-3 dist/1-2-4 dist/1-3-1
+
           cp -R 2026-02-03/1-2-2/dist/. dist/1-2-2/
           cp -R 2026-02-04/1-2-3/dist/. dist/1-2-3/
           cp -R 2026-02-04/1-2-4/dist/. dist/1-2-4/
+          cp -R 2026-02-05/1-3-1/dist/. dist/1-3-1/
+
+
+          echo "== final artifact index.html files =="
+          find dist -maxdepth 2 -type f -name "index.html" -print
+
+          echo "== final artifact folders =="
+          ls -al dist
+          ls -al dist/1-2-2
+          ls -al dist/1-2-3
+          ls -al dist/1-2-4
+          ls -al dist/1-3-1
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
