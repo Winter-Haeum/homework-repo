@@ -1,4 +1,4 @@
-# 📌 Timer UI (Clock Project)
+# 📌 Timer UI (1-4-2)
 
 React 기반의 Timer 프로젝트입니다.  
 현재 시간을 표시하고  

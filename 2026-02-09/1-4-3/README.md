@@ -1,4 +1,4 @@
-# 📌 Stopwatch Timer (1-4-2)
+# 📌 Stopwatch Timer (1-4-3)
 
 React 기반의 Stopwatch 프로젝트입니다.  
 useState, useRef, useEffect를 활용하여  
