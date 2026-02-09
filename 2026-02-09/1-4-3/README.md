@@ -22,7 +22,7 @@ Start / Stop / Reset 기능과
 
 ## 🎬 Live Demo
 
-🌐 https://winter-haeum.github.io/homework-repo/1-4-2/
+🌐 https://winter-haeum.github.io/homework-repo/1-4-3/
 
 ---
 
