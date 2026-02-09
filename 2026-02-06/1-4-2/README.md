@@ -23,7 +23,7 @@ Start / Stop 기능을 구현했습니다.
 
 ## 🎬 Live Demo
 
-🌐 배포 링크 추가 예정
+🌐 https://winter-haeum.github.io/homework-repo/1-4-2/
 
 ---
 
