@@ -1,0 +1,87 @@
+.background-wrap {
+    position: relative;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 배경 전용 레이어 */
+.background-wrap::before {
+    content: "";
+    position: absolute;
+
+    width: 570px;
+    height: 570px;
+
+    background-image: url("./assets/background.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.6;          /* 은은하게 */
+    z-index: 0;
+}
+
+.counter-box {
+    position: relative;
+    z-index: 1;
+
+    width: 280px;                
+    padding: 48px 28px;         
+
+    background: rgba(255, 255, 255, 0.65);  
+    backdrop-filter: blur(14px);             
+
+    border-radius: 28px;     
+    border: 1px solid rgba(255,255,255,0.6);
+
+    box-shadow:
+        0 25px 50px rgba(255, 182, 193, 0.18),
+        0 10px 20px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.counter-value {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.counter-buttons {
+    display: flex;
+    gap: 10px; /* 버튼 사이 간격 */
+}
+
+/* 버튼 공통 */
+.counter-buttons button {
+    min-width: 44px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+    transition: transform 0.05s ease, opacity 0.2s ease;
+}
+
+.counter-buttons button:active {
+    transform: scale(0.97); /* 눌림 효과 */
+}
+
+/* 증가(파랑) */
+.btn-increase { background: #2f80ed; }
+.btn-increase:hover { opacity: 0.9; }
+
+/* 감소(빨강) */
+.btn-decrease { background: #eb5757; }
+.btn-decrease:hover { opacity: 0.9; }
+
+/* 리셋(회색) */
+.btn-reset { background: #6c757d; }
+.btn-reset:hover { opacity: 0.9; }
