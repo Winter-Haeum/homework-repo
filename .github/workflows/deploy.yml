@@ -129,11 +129,11 @@ jobs:
       # 1-4-4
       # -------------------------
       - name: Install (1-4-4)
-        working-directory: 2026-02-10/1-4-
+        working-directory: 2026-02-10/1-4-4
         run: npm install
 
-      - name: Build (1-4-)
-        working-directory: 2026-02-10/1-4-
+      - name: Build (1-4-4)
+        working-directory: 2026-02-10/1-4-4
         run: npm run build
 
       # -------------------------
