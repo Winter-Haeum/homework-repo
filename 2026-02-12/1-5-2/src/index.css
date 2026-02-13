@@ -1,0 +1,136 @@
+/* ===== Todo App 전체 화면 배경 ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f7fb;
+}
+
+/* ===== 앱 전체 박스 ===== */
+.app {
+  max-width: 520px;
+  margin: 70px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eef0f4;
+}
+
+.title {
+  margin: 0 0 18px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+/* ===== 입력 영역 ===== */
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d9dde5;
+  outline: none;
+  font-size: 16px;
+}
+
+.todo-input input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.05);
+}
+
+.todo-input button {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  background: #4f46e5;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.todo-input button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* ===== 리스트 ===== */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px 14px;
+  margin-bottom: 10px;
+
+  background: #f2f4ff;
+  border: 1px solid #e7e9ff;
+  border-radius: 14px;
+  transition: 0.15s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  text-decoration-color: #c81e1e;
+  text-decoration-thickness: 2px;
+  opacity: 0.55;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.btn-ghost {
+  background: #ffffff;
+  border-color: #d9dde5;
+  color: #2b2f36;
+}
+
+.btn-ghost:hover {
+  background: #f3f4f6;
+}
+
+.btn-danger {
+  background: #ffe7e7;
+  border-color: #ffd1d1;
+  color: #c81e1e;
+}
+
+.btn-danger:hover {
+  background: #ffdcdc;
+}
