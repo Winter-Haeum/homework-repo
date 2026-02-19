@@ -20,7 +20,7 @@ Emotion(styled)을 사용하여 컴포넌트 기반 스타일링을 적용했습
 
 ## 🎬 Live Demo
 
-🌐 https://winter-haeum.github.io/homework-repo/1-3-부록-2/
+🌐 https://winter-haeum.github.io/homework-repo/1-3-appendix-2/
 
 ---
 
