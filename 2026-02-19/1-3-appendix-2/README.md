@@ -1,4 +1,4 @@
-# 📌 Mini Blog with React Router (1-3-부록-2)
+# 📌 Mini Blog with React Router (1-3-appendix-2)
 
 React 기반 Mini Blog 프로젝트입니다.  
 React Router를 활용하여 홈, 글 목록, 글 상세 페이지를 구현하고,  
