@@ -8,7 +8,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CustomThemeProvider>
-      <BrowserRouter basename="/homework-repo/1-3-부록-2">
+      <BrowserRouter basename="/homework-repo/1-3-appendix-2">
         <App />
       </BrowserRouter>
     </CustomThemeProvider>
