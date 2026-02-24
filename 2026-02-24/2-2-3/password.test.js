@@ -20,6 +20,10 @@ describe("isValidPassword", () => {
       expect(isValidPassword("12345678")).toBe(false);
     });
 
+    test("특수문자가 없으면 false를 반환한다", () => {
+      expect(isValidPassword("Password123")).toBe(false);
+    });
+
     test("빈 문자열이 있으면 false를 반환한다", () => {
       expect(isValidPassword("")).toBe(false);
     });
