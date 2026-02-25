@@ -1,7 +1,9 @@
+import Toggle from "./components/Toggle";
+
 function App() {
   return (
     <div>
-      <h1>초기화 완료</h1>
+      <Toggle />
     </div>
   );
 }

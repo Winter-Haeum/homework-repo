@@ -1,16 +1,72 @@
-# React + Vite
+# 📌 Toggle Button with TDD (2-3-1)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 기반의 ON/OFF 토글 버튼 프로젝트입니다.  
+useState와 이벤트 핸들링을 활용하여  
+상태 전환 및 조건부 렌더링을 구현했습니다.  
+Jest와 React Testing Library를 사용해 TDD 방식으로 기능을 검증했습니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 🔘 ON / OFF 토글 버튼 구현
+- 🔁 버튼 클릭 시 상태 반전 (Boolean Toggle Pattern)
+- 🎨 상태에 따른 배경색 변경 (gray ↔ green)
+- 📏 고정 너비 적용으로 UI 흔들림 방지
+- 🧪 Jest + React Testing Library로 테스트 작성
+- ♻️ 안전한 상태 업데이트 패턴 사용 (prev 기반 업데이트)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🎬 Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🌐 https://winter-haeum.github.io/homework-repo/2-3-1/
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- useState
+- JavaScript (삼항연산자)
+- Jest
+- React Testing Library
+- user-event
+- CSS (inline style)
+- Flexbox
+
+---
+
+## 🧠 What I Focused On
+
+- Boolean Toggle Pattern 구조 이해
+- 상태 변경(setIsOn)과 리렌더링 관계 학습
+- 안전한 상태 업데이트 방식 `setIsOn((prev) => !prev)` 적용
+- 조건부 렌더링 구조 이해 (ON / OFF 전환)
+- 테스트의 AAA 패턴(Arrange / Act / Assert) 구조 학습
+- UI와 로직 분리 사고 훈련
+- 중복 코드 제거 및 파생 값(label) 분리
+
+---
+
+## 📂 Folder Structure
+
+```
+src
+├─ components
+│  └─ Toggle.jsx
+├─ tests
+│  └─ Toggle.test.jsx
+├─ App.jsx
+└─ index.css
+```
+
+---
+
+## 🚀 Run Locally
+
+```bash
+npm install
+npm test
+npm run dev
+```
