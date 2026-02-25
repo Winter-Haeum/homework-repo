@@ -1,9 +1,8 @@
-# 📌 Toggle Button with TDD (2-3-1)
+📌 Toggle Button Practice with TDD (2-3-1)
 
-React 기반의 ON/OFF 토글 버튼 프로젝트입니다.  
-useState와 이벤트 핸들링을 활용하여  
-상태 전환 및 조건부 렌더링을 구현했습니다.  
-Jest와 React Testing Library를 사용해 TDD 방식으로 기능을 검증했습니다.
+React에서 useState를 활용해 ON/OFF 상태를 전환하는 토글 버튼을 구현한 학습 과제입니다.
+조건부 렌더링과 이벤트 핸들링의 기본 동작을 이해하는 데 목적을 두었습니다.
+Jest와 React Testing Library를 사용해 테스트를 작성하며 TDD 흐름을 연습했습니다.
 
 ---
 
