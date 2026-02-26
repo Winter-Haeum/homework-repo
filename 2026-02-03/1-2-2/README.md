@@ -1,54 +1,18 @@
-# React Profile Card Project
+# 📌 React Profile Card Project
 
-A React-based profile card assignment focused on component separation and JSX fundamentals.  
-React를 사용하여 프로필 카드를 구현하고 컴포넌트 분리와 JSX 기초를 학습한 과제입니다.
-
----
-
-## 🎯 Objective
-
-- Understand JSX syntax  
-  JSX 문법 이해
-- Render variables and expressions in JSX  
-  JSX 내부에서 변수 및 계산식 출력
-- Use array methods such as join()  
-  배열 join() 활용
-- Practice component separation (Header, Card, Footer)  
-  컴포넌트 분리 연습
-- Understand import / export structure  
-  import / export 구조 이해
-- Implement image hover effect with CSS  
-  이미지 hover 효과 구현
+React 기반 Profile Card 프로젝트입니다.  
+컴포넌트 분리 구조를 적용하고, JSX 기본 문법과 표현식 렌더링을 학습한 과제입니다.
 
 ---
 
-## 🚀 Key Features
+## ✨ Features
 
-- Component-based structure using Header, Card, Footer  
-  Header, Card, Footer 컴포넌트 분리 구조
-- Dynamic age calculation using JavaScript Date API  
-  Date 객체를 활용한 나이 자동 계산
-- Array rendering with join()  
-  join()을 통한 취미 배열 출력
-- CSS image hover transition  
-  CSS hover 전환 효과 구현
-
----
-
-## 🏗 Folder Structure
-
-```txt
-src
- ├── App.jsx
- ├── App.css
- ├── assets
- │    ├── basic.png
- │    └── wave.png
- └── components
-      ├── Header.jsx
-      ├── Card.jsx
-      └── Footer.jsx
-```
+- 🧩 Header, Card, Footer 컴포넌트 분리 구조
+- 🎂 JavaScript Date API를 활용한 나이 자동 계산
+- 📝 취미 배열을 `join()`으로 문자열 렌더링
+- 🎨 CSS를 활용한 이미지 hover 전환 효과
+- 📦 import / export 구조 기반 컴포넌트 설계
+- 🧠 JSX 내부 변수 및 계산식 출력 구현
 
 ---
 
@@ -63,31 +27,52 @@ src
 - React
 - JSX
 - CSS
+- JavaScript (Date 객체, 배열 메서드 join)
 - Git & GitHub
 
 ---
 
-## 📚 What I Learned
+## 🧠 What I Focused On
 
-- JSX uses `{}` to embed JavaScript expressions  
-  JSX에서 `{}`는 JavaScript 표현식을 삽입하는 자리
-- Arrays must be converted to strings when rendering  
-  배열은 렌더링 시 문자열로 변환 필요
-- Importance of component separation  
-  컴포넌트 분리의 중요성
-- Understanding import paths and folder structure  
-  import 경로와 폴더 구조 이해
+- JSX 문법 구조 이해 및 `{}` 표현식 사용
+- 변수 및 계산식 JSX 내부 출력 방식 학습
+- 배열 데이터를 문자열로 변환하여 렌더링 처리
+- Header / Card / Footer 컴포넌트 분리 설계
+- import / export 구조 흐름 이해
+- CSS hover 인터랙션 구현
+- 폴더 구조 정리 및 경로 관리
+
+---
+
+## 📂 Folder Structure
+
+```txt
+src
+├─ App.jsx
+├─ App.css
+├─ assets
+│  ├─ basic.png
+│  └─ wave.png
+└─ components
+   ├─ Header.jsx
+   ├─ Card.jsx
+   └─ Footer.jsx
+```
+
+---
+
+## 🚀 Run Locally
+
+```bash
+npm i
+npm run dev
+```
 
 ---
 
 ## 🔮 Future Improvements
 
-- Pass dynamic data using props  
-  props를 활용한 동적 데이터 전달
-- Render multiple cards  
-  여러 카드 렌더링
-- Use map() for list rendering  
-  map() 활용
-- Improve UI styling  
-  스타일 개선
-
+- props를 활용한 동적 데이터 전달
+- 여러 카드 렌더링 구조 확장
+- `map()`을 활용한 리스트 렌더링
+- UI 스타일링 개선
